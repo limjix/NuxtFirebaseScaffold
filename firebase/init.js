@@ -36,4 +36,7 @@ export const storage = firebase.app().storage("gs://YOUR_BUCKET_HERE");
 // messaging.usePublicVapidKey(
 //   "BDYE2EYHdIp8qHjTKcJYPvO4PgaAH2pSruP55FOtNs5jWsgdeg7YK6OgJ0daSu21kN7aSzU19NRXRqC4bfITZYQ"
 // );
+export const GoogleProvider = new firebase.auth.GoogleAuthProvider()
+export const FacebookProvider = new firebase.auth.FacebookAuthProvider()
+
 export default firebase;

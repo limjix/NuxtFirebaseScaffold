@@ -2,7 +2,7 @@
  * Purpose: To be concerned only with the _user profile data
  * Author: John + Sam
  * */
-import { auth, firestoreDB, persistencetype } from "@/firebase/init.js";
+import { auth, firestoreDB, persistencetype, GoogleProvider, FacebookProvider } from "@/firebase/init.js";
 
 //UID is also DocumentID for firestore entry fyi
 export const state = () => ({
@@ -65,6 +65,19 @@ export const actions = {
   // Use firebase sdk to switch to a signout state - happens at the logout button on the navbar
   logout({ dispatch }) {
     return auth.signOut();
+  },
+
+  signInWithGoogle({ commit }) {
+    return new Promise((resolve, reject) => {
+      auth.signInWithRedirect(GoogleProvider);
+      resolve();
+    });
+  },
+  signInWithFacebook({ commit }) {
+    return new Promise((resolve, reject) => {
+      auth.signInWithRedirect(FacebookProvider);
+      resolve();
+    });
   },
 
   // Called by plugin->fireauth. When state changes, request dispatched to firestore for details of logged in _user.

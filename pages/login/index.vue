@@ -110,7 +110,27 @@
               this.feedback = err;
             });
         },
-
+        //Add buttons for google sign in and facebooklogin
+        googleSignIn() {
+          this.$store
+            .dispatch("user/signInWithGoogle")
+            .then(() => {
+              this.$router.push("/");
+            })
+            .catch(err => {
+              alert(err.message);
+            });
+        },
+        facebookLogin() {
+          this.$store
+            .dispatch("user/signInWithFacebook")
+            .then(() => {
+              this.$router.push("/");
+            })
+            .catch(err => {
+              alert(err.message);
+            });
+        }
         signup() {
           this.$router.push("signup");
         },
