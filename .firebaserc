@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tunnel-insight-270606"
+  },
+  "targets": {
+    "tunnel-insight-270606": {
+      "hosting": {
+        "mrtc": [
+          "mrtc-tunnel-insight"
+        ]
+      }
+    }
+  }
+}

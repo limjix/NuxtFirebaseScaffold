@@ -1,0 +1,24 @@
+{
+  "name": "NuxtFirebaseScaffold",
+  "version": "1.0.0",
+  "description": "App to demonstrate how to integrate firebase auth, firestore and functions",
+  "author": "limjix",
+  "private": false,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "deploy": "npm run build && firebase deploy --only hosting",
+    "deployall": "npm run build && firebase deploy"
+  },
+  "dependencies": {
+    "@nuxtjs/pwa": "^3.0.0-0",
+    "firebase": "^7.19.1",
+    "nuxt": "^2.0.0",
+    "slugify": "^1.4.5"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.0.0"
+  }
+}
