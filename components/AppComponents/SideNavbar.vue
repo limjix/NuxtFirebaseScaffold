@@ -3,7 +3,7 @@
     app
     v-bind:value="value"
     v-on:input="$emit('input', $event)"
-    absolute
+
     temporary
   >
     <v-list-item>
