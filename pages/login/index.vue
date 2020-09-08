@@ -130,7 +130,7 @@
             .catch(err => {
               alert(err.message);
             });
-        }
+        },
         signup() {
           this.$router.push("signup");
         },
