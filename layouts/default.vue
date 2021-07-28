@@ -1,40 +1,73 @@
 <template>
   <v-app>
-    <SideNavBar v-model="drawer"/>
-    <AppBar @sideNavToggle="toggleSideBar" />
+    <AppBar />
 
     <!-- Sizes your content based upon application components -->
-    <v-main>
+    <v-main class="main-div">
       <!-- Provides the application the proper gutter -->
-      <v-container fluid>
+      <div
+        class="shader"
+        v-if="$route.name == `profile-id` && !$vuetify.breakpoint.mobile"
+      ></div>
+      <v-container
+        fluid
+        class="main-cont"
+        :class="
+          $route.name == `profile-id` && !$vuetify.breakpoint.mobile
+            ? 'push-up'
+            : ''
+        "
+      >
         <nuxt />
       </v-container>
     </v-main>
-
-    <Footer/>
+    <Footer />
   </v-app>
 </template>
 
 <script>
-  import AppBar from "~/components/AppComponents/AppBar.vue";
-  import SideNavBar from "~/components/AppComponents/SideNavBar.vue";
-  import Footer from "~/components/AppComponents/Footer.vue"
+import AppBar from "~/components/AppComponents/AppBar.vue";
+import Footer from "~/components/AppComponents/Footer.vue";
 export default {
-  components:{
+  components: {
     AppBar,
-    SideNavBar,
-    Footer
+    Footer,
   },
-  data () {
+  data() {
     return {
-      drawer: false
-    }
+      drawer: false,
+    };
   },
-  methods: {
-    toggleSideBar() {
-      this.drawer = !this.drawer
-      console.log(this.drawer)
-    }
+  methods: {},
+};
+</script>
+
+<style scoped>
+.main-cont {
+  width: 80%;
+  padding-bottom: 100px;
+}
+.main-div {
+  background-color: #f5f5f5;
+}
+.shader {
+  background-color: #e3e3e3;
+  height: 535px;
+}
+.push-up {
+  position: relative;
+  bottom: 535px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+}
+@media only screen and (max-width: 800px) {
+  .main-cont {
+    width: 100%;
+  }
+  .main-div {
+    background-color: #f5f5f5;
   }
 }
-</script>
+</style>

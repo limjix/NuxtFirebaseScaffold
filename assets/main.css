@@ -1,0 +1,95 @@
+h1 {
+    font-family: "Segoe UI";
+    font-weight: normal;
+    font-size: 24px;
+    letter-spacing: 0.098em;
+
+    color: #707070;
+}
+
+h2 {
+    font-family: "Segoe UI";
+    font-weight: normal;
+    font-size: 18px;
+    letter-spacing: 0.08em;
+    color: #707070;
+}
+
+h3 {
+    font-family: "Segoe UI";
+    font-weight: normal;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    color: #707070;
+}
+
+h4 {
+    font-family: "Segoe UI";
+    font-weight: normal;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+
+    color: #707070;
+}
+h5 {
+    font-family: "Segoe UI";
+    font-weight: normal;
+    font-size: 11px;
+    letter-spacing: 0.03em;
+
+    color: #707070;
+}
+.extra-large {
+    font-size: 42px;
+}
+
+.primary {
+    color: #238cb7;
+}
+
+@media only screen and (max-width: 800px) {
+    h1 {
+        font-family: "Segoe UI";
+        font-weight: normal;
+        font-size: 18px;
+        letter-spacing: 0.098em;
+        color: #707070;
+    }
+
+    h2 {
+        font-family: "Segoe UI";
+        font-weight: normal;
+        font-size: 15px;
+        letter-spacing: 0.08em;
+        color: #707070;
+    }
+
+    h3 {
+        font-family: "Segoe UI";
+        font-weight: normal;
+        font-size: 13px;
+        letter-spacing: 0.02em;
+
+        color: #707070;
+    }
+
+    h4 {
+        font-family: "Segoe UI";
+        font-weight: normal;
+        font-size: 11px;
+        letter-spacing: 0.03em;
+
+        color: #707070;
+    }
+    h5 {
+        font-family: "Segoe UI";
+        font-weight: normal;
+        font-size: 8px;
+        letter-spacing: 0.03em;
+
+        color: #707070;
+    }
+    .extra-large {
+        font-size: 24px;
+    }
+}

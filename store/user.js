@@ -2,14 +2,17 @@
  * Purpose: To be concerned only with the _user profile data
  * Author: John + Sam
  * */
-import { auth, firestoreDB, persistencetype, GoogleProvider, FacebookProvider } from "@/firebase/init.js";
+import { auth, firestoreDB, persistencetype, GoogleProvider, FacebookProvider, LinkedInProvider } from "@/firebase/init.js";
 
 //UID is also DocumentID for firestore entry fyi
 export const state = () => ({
+  displayName: null,
   uid: null,
   email: null,
   emailVerified: null,
-  name: null
+  onboarded: null,
+  isAnonymous: null,
+  photoURL: null,
 });
 
 export const getters = {
@@ -20,6 +23,9 @@ export const getters = {
   isEmailVerified(state) {
     return state.emailVerified != null
   },
+  isOnboarded(state) {
+    return state.onboarded != null
+  },
   getEmail(state) {
     return state.email
   }
@@ -27,14 +33,14 @@ export const getters = {
 
 export const mutations = {
   SET_USER_AUTH(state, user) {
-    //For Firebase data
+    //For Firebase user auth
     state.email = user.email;
     state.emailVerified = user.emailVerified;
     state.uid = user.uid;
     console.log("Set_user");
   },
   UNSET_USER_AUTH(state) {
-    //For Firebase Data
+    //For Firebase user auth
     state.email = null;
     state.emailVerified = null;
     state.uid = null;
@@ -43,11 +49,11 @@ export const mutations = {
 
   SET_USER_DETAILS(state, userData) {
     //For other user data from firestore
-    state.name = userData.name
+
   },
   UNSET_USER_DETAILS(state) {
     //For other user data from firestore
-    state.name = null
+
   }
 
 };
@@ -79,22 +85,23 @@ export const actions = {
       resolve();
     });
   },
-
+  signInWithLinkedIn({ commit }) {
+    return new Promise((resolve, reject) => {
+      auth.signInWithRedirect(LinkedInProvider);
+      resolve();
+    });
+  },
   // Called by plugin->fireauth. When state changes, request dispatched to firestore for details of logged in _user.
-  getUserData({ dispatch, commit }) {
+  getUserData({ dispatch, commit, state }) {
 
     firestoreDB
       .collection("Users")
-      .where("email", "==", auth.currentUser.email)
+      .doc(state.uid)
       .get()
-      .then((snapshot) => {
-        snapshot.forEach((doc) => {
-          commit("SET_USER_DETAILS", doc.data());
-        });
-        console.log("User Data Received")
+      .then(doc=>{
+        let data = doc.data()
       })
       .catch((err) => {
-        console.log(err);
       });
 
   },

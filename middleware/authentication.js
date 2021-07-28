@@ -9,7 +9,7 @@ export default function ({ store, route, redirect }) {
   ) {
     // If not authenticated and route is not login
     console.log("Redirect Login");
-    redirect("/login");
+    redirect("/auth");
   }
   if (store.getters["user/isAuthenticated"] && route.name === "login") {
     // if _user is authenticated and route is login

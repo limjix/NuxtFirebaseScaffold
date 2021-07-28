@@ -9,11 +9,11 @@ import "firebase/messaging";
 var config = {
   apiKey: "",
   authDomain: "",
-  databaseURL: "",
   projectId: "",
   storageBucket: "",
   messagingSenderId: "",
-  appId: "",
+  appId: "1",
+  measurementId: ""
 };
 
 !firebase.apps.length ? firebase.initializeApp(config) : "";
@@ -28,7 +28,7 @@ export const persistencetype = firebase.auth.Auth.Persistence.LOCAL;
 // });
 
 //Specify the link to firestoreDB collection that you will be using, feel free to change, add, delete.
-export const firestoreDB = firebase.firestore().collection("users").doc("users");
+export const firestoreDB = firebase.firestore()
 
 export const storage = firebase.app().storage("gs://YOUR_BUCKET_HERE");
 // export const messaging = firebase.messaging();
@@ -38,5 +38,8 @@ export const storage = firebase.app().storage("gs://YOUR_BUCKET_HERE");
 // );
 export const GoogleProvider = new firebase.auth.GoogleAuthProvider()
 export const FacebookProvider = new firebase.auth.FacebookAuthProvider()
+export const LinkedInProvider = new firebase.auth.OAuthProvider('linkedin.com');
+LinkedInProvider.addScope('r_liteprofile');
+LinkedInProvider.addScope('r_emailaddress');
 
 export default firebase;

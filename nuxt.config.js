@@ -1,7 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  mode: 'spa',
+  ssr: false,
   /*
   ** Headers of the page
   */
@@ -25,12 +25,13 @@ export default {
   ** Global CSS
   */
   css: [
+    '@/assets/main.css',
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-   "~plugins/fireauth.js"
+    "~plugins/fireauth.js"
   ],
   /*
   ** Nuxt.js dev-modules
@@ -50,6 +51,7 @@ export default {
   */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    optionsPath: "~/plugins/vuetify.js",
     theme: {
       dark: false,
       themes: {
@@ -63,13 +65,14 @@ export default {
           success: colors.green.accent3
         },
         light: {
-          primary: "1D3557",
-          accent: "324766",
-          secondary: "457B9D",
-          info: "F1FAEE",
-          warning: "455874",
-          error: "E63946",
-          success: "A8DADC"
+          primary: "#238cb7",
+          accent: "#457B9D",
+          secondary: "#35bdf5",
+          info: "#F1FAEE",
+          warning: "#f4a261",
+          error: "#e76f51",
+          success: "#238cb7",
+          background: 'f5f5f5'
         }
       }
     }
@@ -81,7 +84,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
   }
 }
