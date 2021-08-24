@@ -11,7 +11,7 @@
           <div v-if="isAuthenticated" class="d-flex justify-end">
             <div v-if="!$vuetify.breakpoint.mobile">
               <h5 class="white--text">Welcome</h5>
-              <h2 class="white--text">Bryan Chua Seck How</h2>
+              <h2 class="white--text">Your Name Here</h2>
             </div>
             <v-avatar class="mx-4">
               <img :src="photoUrl" />
