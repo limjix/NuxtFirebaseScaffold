@@ -2,7 +2,7 @@
   <v-footer app inset class="font-weight-medium footer">
     <v-col class="text-center d-flex justify-center align-center" cols="12">
       <h4>
-        &copy; <strong>Study Hub Asia—{{ new Date().getFullYear() }}</strong>
+        &copy; <strong>{{ new Date().getFullYear() }}</strong>
       </h4>
 
       <div class="mx-4">
