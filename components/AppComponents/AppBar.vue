@@ -22,7 +22,7 @@
           </div>
           <div v-else>
             <v-btn text color="white" class="mx-4" nuxt to="/auth">Login</v-btn>
-            <v-btn outlined color="white" darkclass="mx-4" nuxt to="/auth/signup"> Join The Community </v-btn>
+            <v-btn outlined color="white" darkclass="mx-4" nuxt to="/auth/signup"> Sign Up </v-btn>
           </div>
         </div>
       </v-col>
